@@ -74,12 +74,26 @@ const [isGenerating, setIsGenerating] = useState(false)
   return (
     <IonList>
  
-
+<IonItem>
+  <IonLabel >List your ingredients below:</IonLabel>
+</IonItem>
  <IonItem className="prompt-container">
-        <IonLabel>Regular textarea</IonLabel>
-        <IonTextarea className="prompt-box" spellcheck placeholder="Type something here" value={userInput}  onIonChange={onUserChangedText}></IonTextarea>
+        
+        <IonTextarea className="prompt-box" spellcheck placeholder="ex. Fish, bread etc.." value={userInput}  onIonChange={onUserChangedText}></IonTextarea>
       </IonItem>
-      <IonButton expand="block" className="generate-button" onClick={generateAction}>Generate</IonButton>
+      <IonButton expand="block" className="generate-button" onClick={generateAction}> <div className="prompt-buttons">
+  <a
+    className={isGenerating ? 'generate-buttons loading' : 'generate-buttons'}
+    onClick={generateAction}
+  >
+    <div className="generate">
+    {isGenerating ? <span className="loader"></span> : <p>Generate</p>}
+    </div>
+  </a>
+</div></IonButton>
+
+     
+
       {apiOutput && (
   <div className="output">
     <div className="output-header-container">
