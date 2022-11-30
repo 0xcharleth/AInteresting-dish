@@ -16,7 +16,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   });
   
   const openai = new OpenAIApi(configuration);
-  const basePromptPrefix = "Please parahprase the following:";
+  const basePromptPrefix = "Give me a dish to make with the following ingredients:";
 //tester
 
 
@@ -33,7 +33,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
         'Authorization': 'Bearer ' + String(environment.OPENAI_API_KEY)
       },
       body: JSON.stringify({
-        'prompt': "Give me a list of famous beers",
+        'prompt': `${basePromptPrefix}${userInput}`,
         "model": "text-davinci-003",
         'temperature': 0.7,
         'max_tokens': 1000,
