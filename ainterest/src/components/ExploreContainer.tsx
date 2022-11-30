@@ -72,7 +72,7 @@ const [isGenerating, setIsGenerating] = useState(false)
 
 
   return (
-    <IonList>
+    <IonList className='fullPage'>
  
 <IonItem>
   <IonLabel >List your ingredients below:</IonLabel>
