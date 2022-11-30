@@ -1,4 +1,5 @@
 import { IonButton, IonInput, IonItem, IonLabel, IonList, IonTextarea } from '@ionic/react';
+import { useState } from 'react';
 import './ExploreContainer.css';
 
 interface ContainerProps {
@@ -6,13 +7,21 @@ interface ContainerProps {
 }
 
 const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
+  const [userInput, setUserInput] = useState('');
+ 
+  const onUserChangedText = (event:any) => {
+    console.log(event.target.value);
+    setUserInput(event.target.value);
+  
+  };
+
   return (
     <IonList>
  
 
- <IonItem>
+ <IonItem className="prompt-container">
         <IonLabel>Regular textarea</IonLabel>
-        <IonTextarea placeholder="Type something here"></IonTextarea>
+        <IonTextarea className="prompt-box" spellcheck placeholder="Type something here" value={userInput}  onIonChange={onUserChangedText}></IonTextarea>
       </IonItem>
       <IonButton expand="block">Block</IonButton>
     
