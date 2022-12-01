@@ -1,10 +1,10 @@
-import { IonButton, IonInput, IonItem, IonLabel, IonList, IonTextarea } from '@ionic/react';
+import { IonButton, IonIcon, IonInput, IonItem, IonLabel, IonList, IonTextarea } from '@ionic/react';
 import { useState } from 'react';
 import './ExploreContainer.css';
 import '../pages/api/generate'
 import { Configuration, OpenAIApi } from 'openai';
 import { environment } from "../env/env";
-
+import { ellipse, square, triangle, keypad, nutrition } from 'ionicons/icons';
 interface ContainerProps {
   name: string;
 }
@@ -78,7 +78,7 @@ const [isGenerating, setIsGenerating] = useState(false)
   <IonLabel >List your ingredients below:</IonLabel>
 </IonItem>
  <IonItem className="prompt-container">
-        
+ 
         <IonTextarea className="prompt-box" spellcheck placeholder="ex. Fish, bread etc.." value={userInput}  onIonChange={onUserChangedText}></IonTextarea>
       </IonItem>
       <IonButton expand="block" className="generate-button" onClick={generateAction}> <div className="prompt-buttons">

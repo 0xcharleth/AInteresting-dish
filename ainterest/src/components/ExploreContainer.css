@@ -146,7 +146,8 @@ body {
     flex: 0 0 auto;
     flex-flow: column nowrap;
     gap: 10px;
- 
+    overflow: scroll;
+
     overflow: hidden;
     padding: 20px;
     position: relative;
@@ -316,4 +317,12 @@ textarea {
 
 
 
+
+.native-textarea{
+
+    width: 350px!important;
+    height:40vh !important;
+    overflow: hidden;
+    overflow: scroll;
+}
 
